@@ -8,11 +8,11 @@ const Footer = () => {
         <div className="footer-content">
             <div className='footer-content-left'>
                 <img src={assets.logo} alt="" />
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus porro quam quasi debitis sequi tempore odio ullam quod aut totam, unde aspernatur harum. Iure exercitationem beatae perferendis dicta voluptatibus dolorem.</p>
+                <p>Our app is packed with features that enable you to experience food delivery like never before.</p>
                 <div className='footer-social-icons'>
                     <img src={assets.facebook_icon} alt="" />
-                    <img src={assets.twitter_icon} alt="" />
-                    <img src={assets.linkedin_icon} alt="" />
+                    <a href="https://twitter.com/aditi_paswan2" target="_blank"> <img src={assets.twitter_icon} alt="" /> </a>
+                    <a href="https://www.linkedin.com/in/aditipaswan/" target="_blank"> <img src={assets.linkedin_icon} alt="" /> </a>
                 </div>
             </div>
             <div className='footer-content-center'>
@@ -27,13 +27,14 @@ const Footer = () => {
             <div className='footer-content-right'>
                 <h2>GET IN TOUCH</h2>
                 <ul>
-                    <li>+91 6388410420</li>
-                    <li>aditipaswan34@gmail.com</li>
+                    <li> <a href="https://wa.me/6388410420?text=Hi there!"
+                target="_blank">+91 6388410420 </a></li>
+                    <li> <a href="mailto:aditipaswan34@gmail.com" target="_blank"> aditipaswan34@gmail.com </a> </li>
                 </ul>
             </div>
         </div>
         <hr />
-        <p className="footer-copyright">Copyright 2024 @Tomato.com - All Rights Reserved.</p>
+        <p className="footer-copyright">Copyright 2024 @cravecourier.com - All Rights Reserved.</p>
     </div>
   )  
 }    
