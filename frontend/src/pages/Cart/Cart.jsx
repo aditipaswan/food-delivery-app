@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../context/StoreContext";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 const Cart = () => {
 
   const { cartItems, food_list, removeFromCart, getTotalCartAmount,url } = useContext(StoreContext);
+  const [promoCode, setPromoCode] = useState("");
+
 
   const navigate = useNavigate();
 
@@ -22,7 +24,7 @@ const Cart = () => {
         </div>
         <br />
         <hr />
-        {food_list.map((item, index) => {
+        {/* {food_list.map((item, index) => {
           if (cartItems[item._id] > 0) {
             return (
               <div>
@@ -31,7 +33,20 @@ const Cart = () => {
                   <p>{item.name}</p>
                   <p>₹{item.price}</p>
                   <p>{cartItems[item._id]}</p>
-                  <p>₹{item.price * [item._id]}</p>
+                  <p>₹{item.price * cartItems[item._id]}</p>
+                  <p onClick={()=>removeFromCart(item._id)} className="cross">x</p> */}
+                  {food_list.map((item, index) => {
+                     if (cartItems[item._id] > 0) {
+                        return (
+               <div key={item._id}>
+
+                <div className="cart-items-title cart-items-item">
+                <img src={url + "/images/" + item.image} alt={item.name} />
+
+                  <p>{item.name}</p>
+                  <p>₹{item.price}</p>
+                  <p>{cartItems[item._id]}</p>
+                  <p>₹{item.price * cartItems[item._id]}</p>
                   <p onClick={()=>removeFromCart(item._id)} className="cross">x</p>
                 </div>
                 <hr />
@@ -62,10 +77,17 @@ const Cart = () => {
           <button onClick={()=>navigate('/order')} >PROCEED TO CHECKOUT</button>
         </div>
         <div className="cart-promocode">
-          <p>If you have a promo code, Enter it here</p>
-          <div className="cart-promocode-input">
-            <input type="text" placeholder="promo code" />
-            <button>Submit</button>
+  <p>If you have a promo code, enter it here:</p>
+  <div className="cart-promocode-input">
+    <input 
+      type="text" 
+      placeholder="Promo code" 
+      value={promoCode} 
+      onChange={(e) => setPromoCode(e.target.value)} 
+    />
+    <button onClick={() => alert(`Promo code '${promoCode}' applied (not really)`)}>Submit</button>
+
+
           </div>
         </div>
       </div>
